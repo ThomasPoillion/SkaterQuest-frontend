@@ -164,7 +164,7 @@ export default function LoginScreen({ navigation }) {
       <KeyboardAvoidingView style={{ width: "100%", alignItems: "center" }}>
         <TextInput
           style={styles.inputs}
-          placeholder="Ton SkateurTag"
+          placeholder="Ton SkaterTag"
           placeholderTextColor={COLOR_PLACEHOLDER}
           onChangeText={setSignUpUsername}
           value={signUpUsername}
@@ -204,8 +204,11 @@ export default function LoginScreen({ navigation }) {
         Bienvenue sur l'app SkaterQuest ! 🛹
       </Text>
       <Text style={[globalStyle.subSubTitle, { textAlign: "center" }]}>
-        Ici, tu pourras suivre ta progression en skate grâce à un livre de
-        tricks, trouver des spots et défier tes potes sur un Game of Skate !
+        Merci pour ton inscription 😊
+      </Text>
+      <Text style={[globalStyle.subSubTitle, { textAlign: "center" }]}>
+        Ici, tu pourras suivre ta progression en skate grâce au livre de tricks,
+        trouver des spots et défier tes potes dans un Game of Skate !
       </Text>
 
       <View>
@@ -235,8 +238,8 @@ export default function LoginScreen({ navigation }) {
         Un Game of Skate c'est quoi ?🤔
       </Text>
       <Text style={[globalStyle.subSubTitle, { textAlign: "center" }]}>
-        Un skateur fait un trick, l'autre doit le reproduire : à chaque échec,
-        il gagne une lettre du mot SKATE jusqu'à être éliminé. 🛹🔥
+        Un skater fait un trick, l'autre doit le reproduire : à chaque échec, il
+        gagne une lettre du mot SKATE jusqu'à être éliminé. 🛹🔥
       </Text>
 
       <View>
@@ -264,9 +267,9 @@ export default function LoginScreen({ navigation }) {
       containerStyle={globalStyle.modalContainer}
     >
       <Text style={globalStyle.screenTitle}>T'es prêt à rider ? 🛹😎</Text>
-      <Text style={globalStyle.subSubTitle}>
-        Tu trouveras dans ton livre des tricks les tricks que tu maîtrises et
-        ceux que tu vas devoir apprendre pour atteindre le 100% !
+      <Text style={[globalStyle.subSubTitle, { textAlign: "center" }]}>
+        Tu trouveras dans ton livre de tricks, ceux que tu maîtrises et ceux que
+        tu vas devoir apprendre pour atteindre le 100% !
       </Text>
       <Text style={globalStyle.screenTitle}>T'es chaud patate ? 🛹💪</Text>
       <View style={styles.tutoButtons}>
