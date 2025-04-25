@@ -85,10 +85,10 @@ export default function AddPhotoScreen({ navigation, route }) {
           takenPhoto.uri,
           spotData._id
         );
-        setUploading(false); // Masquage de l'indicateur de chargement
         console.log("photo URI :", takenPhoto.uri);
         console.log("result :", result, ", error :", error);
       }
+      setUploading(false); // Masquage de l'indicateur de chargement
     }
     photosSpot.length > 0 && navigation.goBack();
     // NB : Avec un débit internet faible ça peut prendre plusieurs secondes ou minutes pour revenir sur SpotScreen, ajouter un ActivityIndicator
@@ -168,6 +168,14 @@ export default function AddPhotoScreen({ navigation, route }) {
           <Text style={styles.deleteHint}>
             Fais un appui long sur une photo pour la supprimer
           </Text>
+
+          {uploading && (
+            <View>
+              <Text>Chargement des photos...</Text>
+              <ActivityIndicator size="large" color="orange" />
+            </View>
+          )}
+
           <Button onPress={savePhotos} text="Valider ces photos" />
         </>
       )}
@@ -199,11 +207,11 @@ const styles = StyleSheet.create({
     padding: 8,
     // marginBottom: 10,
   },
-    previewScroll: {
-      marginTop: 16,
-      marginBottom: 16,
-      maxHeight: 90,
-    },
+  previewScroll: {
+    marginTop: 16,
+    marginBottom: 16,
+    maxHeight: 90,
+  },
   previewContainer: {
     flexDirection: "row",
     paddingHorizontal: 10,
@@ -220,7 +228,7 @@ const styles = StyleSheet.create({
   deleteHint: {
     textAlign: "center",
     fontSize: 14,
-    fontWeight : 600,
+    fontWeight: 600,
     color: "black",
     marginBottom: 10,
   },

@@ -84,7 +84,8 @@ export default function SpotScreen({ navigation, route }) {
         spotData._id
       );
     } finally {
-      setUploading(false); // Disparition de l'ActivityIndicator quand la vidéo est chargée
+      setUploading(false);
+      forceUpdate(); // Disparition de l'ActivityIndicator quand la vidéo est chargée
     }
 
     if (result) {
@@ -261,7 +262,11 @@ export default function SpotScreen({ navigation, route }) {
           Quels tricks sont présents dans la vidéo ?
         </Text>
         {trickInputs.map((trick, index) => (
-          <KeyboardAvoidingView key={index} /* Attention à mettre la prop key dans ce composant parent et pas dans TextInput */>
+          <KeyboardAvoidingView
+            key={
+              index
+            } /* Attention à mettre la prop key dans ce composant parent et pas dans TextInput */
+          >
             <TextInput
               placeholder={`Trick ${index + 1}`}
               placeholderTextColor={COLOR_PLACEHOLDER}
