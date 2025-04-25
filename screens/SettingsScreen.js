@@ -33,7 +33,7 @@ export default function SettingsScreen({ navigation }) {
   const isFocused = useIsFocused();
   const { token } = useSelector((state) => state.user.value);
   const [userData, setUserData] = useState(null);
-  const [isUploading, setIsUploading] = useState(false); // Pour activer l'indicateur visuel du chargement de l'avatar lors d'un changement
+  const [uploading, setUploading] = useState(false); // Pour activer l'indicateur visuel du chargement de l'avatar lors d'un changement
 
   const [setConfim, ConfirmModal] = useConfirmationModal();
   const [setErrorModal, ErrorModal] = useErrorModal();
@@ -71,9 +71,9 @@ export default function SettingsScreen({ navigation }) {
       });
       if (!pickerResult.canceled && pickerResult.assets?.length > 0) {
         const uri = pickerResult.assets[0].uri;
-        setIsUploading(true); // Affichage de l'indicateur de chargement
+        setUploading(true); // Affichage de l'indicateur de chargement
         const { result } = await changeUserAvatar(token, uri);
-        setIsUploading(false); // Masquage de l'indicateur de chargement
+        setUploading(false); // Masquage de l'indicateur de chargement
         // Affichage d'un écran de confirmation pour l'utilisateur (car l'éditeur de launchImageLibraryAsync n'est pas très clair à ce niveau)
         if (result) {
           setErrorModal("Succès", "Ton avatar a été mis à jour !");
@@ -114,7 +114,7 @@ export default function SettingsScreen({ navigation }) {
   return (
     <BackgroundWrapper flexJustify="center">
       <TouchableOpacity onPress={handleImagePress} activeOpacity={0.6}>
-        {isUploading ? (
+        {uploading ? (
           <ActivityIndicator
             size="large"
             color="#fff"
