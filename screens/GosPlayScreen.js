@@ -147,7 +147,7 @@ export default function GosPlayScreen({ navigation }) {
         {/* Bouton "Joueurs" */}
         <Button
           iconName="repeat"
-          text="Joueurs"
+          text="Choix pseudos"
           onPress={() => setModalVisible(true)}
           style={styles.reconfigButton}
         />

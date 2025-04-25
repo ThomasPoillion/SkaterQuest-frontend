@@ -57,6 +57,10 @@ export default function SpotScreen({ navigation, route }) {
     */
     isFocused &&
       getSpotInfo(token, spotData._id).then(({ result, data }) => {
+        data.videos = data.videos.sort(
+          (a, b) => b.votes.length - a.votes.length
+        );
+
         result && setSpotData(data);
       });
   }, [isFocused, updateWatcher]);
