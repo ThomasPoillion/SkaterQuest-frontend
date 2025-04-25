@@ -14,6 +14,7 @@ import { signInRequest, signUpRequest } from "../lib/request";
 import { Button } from "../components/Buttons";
 import globalStyle, {
   COLOR_BACK,
+  COLOR_CANCEL,
   COLOR_CONFIRM,
   COLOR_PLACEHOLDER,
 } from "../globalStyle";
@@ -202,7 +203,7 @@ export default function LoginScreen({ navigation }) {
       <Text style={globalStyle.screenTitle}>
         Bienvenue sur l'app SkaterQuest ! 🛹
       </Text>
-      <Text style={globalStyle.subSubTitle}>
+      <Text style={[globalStyle.subSubTitle, { textAlign: "center" }]}>
         Ici, tu pourras suivre ta progression en skate grâce à un livre de
         tricks, trouver des spots et défier tes potes sur un Game of Skate !
       </Text>
@@ -302,8 +303,7 @@ export default function LoginScreen({ navigation }) {
 
       <Button
         iconName="person-add"
-        text={
-`T'es nouveau ?
+        text={`T'es nouveau ?
 Créer un compte ici !`}
         size={30}
         containerStyle={styles.button}
@@ -334,7 +334,7 @@ const NextButton = ({ onPress }) => (
 const SkipButton = ({ onPress }) => (
   <Button
     text="Passer"
-    containerStyle={{ ...styles.button, backgroundColor: COLOR_BACK }}
+    containerStyle={{ ...styles.button, backgroundColor: COLOR_CANCEL }}
     onPress={onPress}
   />
 );
